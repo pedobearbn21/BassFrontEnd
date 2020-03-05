@@ -37,14 +37,20 @@
         <v-icon>mdi-open-in-new</v-icon>
       </v-btn>
     </v-app-bar>
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
+    <v-content>
+      <v-container>
+        <router-link to="/">Home</router-link> |
+        <router-link to="/myblog">Myblog</router-link> |
+        <router-link to="/about">About</router-link>
+        <router-view />
+      </v-container>
+    </v-content>
     </v-app>
+    <!-- <div id="nav">
+      
+    </div> -->
   </div>
-
+  
 </template>
 
 <style lang="scss">
