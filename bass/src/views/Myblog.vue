@@ -10,15 +10,14 @@
                 hide-details
             ></v-text-field>
             </v-card-title>
-            <v-data-table
+            <DataTable
+            @edit='editItem'
             :headers="headers"
-            :items="desserts"
+            :data="desserts"
             :search="search"
+            :loading="loadingTable"
             >
-                <template  v-slot:button>
-                    <button>Button</button>
-                </template>
-            </v-data-table>
+            </DataTable>
         </v-card>
     </div>
   
@@ -26,7 +25,11 @@
 
 <script>
 import axios from 'axios';
+import DataTable from '@/components/DataTable';
 export default {
+    components: {
+        DataTable
+    },
     name: "Myblog",
     data() {
         return {
@@ -36,20 +39,33 @@ export default {
             { text: 'Title Post', value: 'title' },
             { text: 'Description', value: 'description' },
             { text: 'Status', value: 'status' },
-            { text: 'Button', value: 'button'}
+            { text: 'Button', value: 'manager'}
             ],
             desserts: [
             ],
+            loadingTable: false,
       }
     },
     mounted() {
         this.getPost()
     },
     methods: {
+        editItem(event){
+            console.log(event)
+            axios({
+                method: 'put',
+                url: `http://localhost:8000/api/Postlist/${event.id}`,
+                data: event
+            }).then((res)=>{
+                console.log('success=',res)
+            })
+        },
         getPost(){
+            this.loadingTable = true
             axios.get('http://localhost:8000/api/Postlist').then((response) => {
               console.log(response)
               this.desserts = response.data
+              this.loadingTable = false
             })
         }
     },
