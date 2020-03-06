@@ -4,10 +4,10 @@
       :headers="headers"
       :items="data"
       :loading="loading"
+      :search="search"
       loading-text="กำลังโหลดข้อมูล กรุณารอสักครู่..."
       class="elevation-1 text-center justify-center"
     >
-      <!-- @todo: move line 15 to computed -->
       <template v-slot:item.index="{ item }" class="text-primary">
         {{ item.index }}
       </template>
@@ -27,7 +27,6 @@
           </v-icon>
         </v-btn>
         <v-btn
-          v-if="item.id!=userID"
           @click="setDeleteID(item.id)"
           color="danger"
           small
@@ -80,9 +79,9 @@
 
 export default {
   props: {
-    userID: {
-      type: Number,
-      default: null
+    search: {
+      type: String,
+      default: ''
     },
     headers: {
       type: Array,
@@ -118,24 +117,8 @@ export default {
   data: () => ({
     dialog: false,
     deleteID: 0,
-    footerOption: {
-      itemsPerPageOptions: [5, 10, 30, 50],
-      itemsPerPageText: 'จำนวนแถวต่อหน้า'
-    },
     disabled: false,
-    successMessage: null,
-    watchImage: false,
-    env: process.env.SERVICE_URL,
-    imageItems: []
   }),
-  computed: {
-    optionsObj: {
-      get () { return this.options },
-      set (value) {
-        this.$emit('update:options', value)
-      }
-    }
-  },
   watch: {
     loading (value) {
       if (!value) {
@@ -144,14 +127,8 @@ export default {
     }
   },
   methods: {
-    updatestatus (item, e) {
-      this.$emit('statustestimonial', item, e)
-    },
     editItem (item) {
       this.$emit('edit', item)
-    },
-    editStatus (item, e) {
-      this.$emit('status', item, e)
     },
     setDeleteID (id) {
       this.dialog = true
@@ -161,20 +138,9 @@ export default {
       this.axios.delete(`${this.path.delete}/${this.deleteID}`)
         .then(() => {
           this.$emit('delete')
-          this.successMessage = 'ลบข้อมูลสำเร็จ'
-          setTimeout(() => {
-            this.successMessage = null
-          }, 2000)
         })
       this.dialog = false
     },
-    onWatchImage (imgSrc) {
-      this.watchImage = true
-      this.imageItems[0] = { src: imgSrc }
-    },
-    closeImage () {
-      this.watchImage = false
-    }
   }
 }
 </script>

@@ -31,7 +31,9 @@
           </v-list-item-icon>
 
           <v-list-item-content>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
+            <v-list-item-title>
+              <router-link :to=item.path  >{{ item.title }}</router-link>
+            </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -49,9 +51,6 @@
         @click.stop="primaryDrawer.model = !primaryDrawer.model"
       />
       <v-toolbar-title>Vuetify</v-toolbar-title>
-      <router-link to="/">Home</router-link> |
-        <router-link to="/myblog">Myblog</router-link> |
-        <router-link to="/about">About</router-link>
     </v-app-bar>
 
     <v-content>
@@ -67,12 +66,6 @@
       <span class="px-4">&copy; {{ new Date().getFullYear() }}</span>
     </v-footer>
   </v-app>
-    <!-- <v-content>
-      <v-container>
-        
-      </v-container>
-    </v-content> -->
-
 </template>
 
 <script>
@@ -87,9 +80,9 @@ export default {
         inset: false,
       },
       items: [
-          { title: 'Home', icon: 'mdi-home-city' },
-          { title: 'My Account', icon: 'mdi-account' },
-          { title: 'Users', icon: 'mdi-account-group-outline' },
+          { title: 'Home', icon: 'mdi-home-city', path: '/' },
+          { title: 'My Account', icon: 'mdi-account', path: '/myblog' },
+          { title: 'About', icon: 'mdi-account-group-outline', path: '/about' },
         ],
         mini: true,
     }
@@ -98,5 +91,8 @@ export default {
 </script>
 
 <style lang="scss">
-
+a  {
+  text-decoration: none !important;
+  color:white !important;
+}
 </style>
