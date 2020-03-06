@@ -158,7 +158,7 @@ export default {
       this.deleteID = id
     },
     deleteItem () {
-      this.$axios.delete(`${this.path.delete}/${this.deleteID}`)
+      this.axios.delete(`${this.path.delete}/${this.deleteID}`)
         .then(() => {
           this.$emit('delete')
           this.successMessage = 'ลบข้อมูลสำเร็จ'

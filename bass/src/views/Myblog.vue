@@ -12,10 +12,12 @@
             </v-card-title>
             <DataTable
             @edit='editItem'
+            @delete='getPost'
             :headers="headers"
             :data="desserts"
             :search="search"
             :loading="loadingTable"
+            :path="{delete: 'http://localhost:8000/api/Postlist'}"
             >
             </DataTable>
         </v-card>
@@ -24,7 +26,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 import DataTable from '@/components/DataTable';
 export default {
     components: {
@@ -52,7 +53,7 @@ export default {
     methods: {
         editItem(event){
             console.log(event)
-            axios({
+            this.axios({
                 method: 'put',
                 url: `http://localhost:8000/api/Postlist/${event.id}`,
                 data: event
@@ -62,7 +63,9 @@ export default {
         },
         getPost(){
             this.loadingTable = true
-            axios.get('http://localhost:8000/api/Postlist').then((response) => {
+
+            this.axios.get('http://localhost:8000/api/Postlist').then((response) => {
+             
               console.log(response)
               this.desserts = response.data
               this.loadingTable = false
