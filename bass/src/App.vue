@@ -12,7 +12,7 @@
       <v-app-bar-nav-icon
         @click.stop="primaryDrawer.model = !primaryDrawer.model"
       />
-      <v-toolbar-title>Vuetify</v-toolbar-title>
+      <v-toolbar-title>Bass</v-toolbar-title>
     </v-app-bar>
 
     <v-content>

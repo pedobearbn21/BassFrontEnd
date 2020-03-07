@@ -51,8 +51,11 @@ export default {
         return {
             items: [
                 { title: 'Home', icon: 'mdi-home-city', path: '/' },
-                { title: 'My Account', icon: 'mdi-account', path: '/myblog' },
-                { title: 'About', icon: 'mdi-account-group-outline', path: '/about' },
+                { title: 'Profile', icon: 'mdi-account', path: '/profile' },
+                { title: 'Myblog', icon: 'mdi-blogger', path: '/myblog' },
+                { title: 'Warehouse', icon: 'mdi-warehouse', path: '/warehouse' },
+                { title: 'Logout', icon: 'mdi-logout', path: '/logout' },
+
             ],
             mini: true,
         }
