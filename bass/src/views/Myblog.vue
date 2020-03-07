@@ -55,7 +55,7 @@ export default {
             console.log(event)
             this.axios({
                 method: 'put',
-                url: `http://localhost:8000/api/Postlist/${event.id}`,
+                url: `Postlist/${event.id}`,
                 data: event
             }).then((res)=>{
                 console.log('success=',res)
@@ -64,7 +64,7 @@ export default {
         getPost(){
             this.loadingTable = true
 
-            this.axios.get('http://localhost:8000/api/Postlist').then((response) => {
+            this.axios.get('Postlist').then((response) => {
              
               console.log(response)
               this.desserts = response.data
