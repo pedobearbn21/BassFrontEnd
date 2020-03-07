@@ -18,6 +18,7 @@
           </div>
       </v-card-text>
     </v-card>
+    <Postbox/>
 
     
     </body>
@@ -27,12 +28,12 @@
 
 <script>
 // @ is an alias to /src
-
+import Postbox from "@/components/Postbox.vue";
 
 export default {
   name: "Home",
   components: {
-    
+    Postbox ,
   }
 };
 </script>
