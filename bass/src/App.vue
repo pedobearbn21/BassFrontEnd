@@ -1,7 +1,7 @@
 <template>
 
     <v-app id="sandbox">
-    <div v-if='logined'>
+    <div v-if='true'>
     <Drawner
       :primaryDrawer='primaryDrawer'
     />
@@ -29,20 +29,20 @@
       <span class="px-4">&copy; {{ new Date().getFullYear() }}</span>
     </v-footer>
     </div>
-    <div v-else>
+    <!-- <div v-else>
       <Login @login_success='success'/>
-    </div>
+    </div> -->
   </v-app>
 </template>
 
 <script>
 import { mapState } from 'vuex'
 import Drawner from '@/components/Drawner.vue';
-import Login from '@/views/Login.vue';
+// import Login from '@/views/Login.vue';
 export default {
   components:{
     Drawner,
-    Login
+    
   },
   data() {
     return {
