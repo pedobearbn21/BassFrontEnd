@@ -14,14 +14,14 @@
           v-model="valid"
           lazy-validation
         >
-          <v-text-field
+          <v-text-field dense
             v-model="name"
             outlined
             label="หัวข้อ"
             required
           ></v-text-field>
 
-          <v-text-field
+          <v-text-field dense
             v-model="email"
             outlined
             label="อธิบาย"
