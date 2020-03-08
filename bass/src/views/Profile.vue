@@ -43,8 +43,9 @@ export default {
 .circle{
     width:15%;
     height: 25%;
-    background-color: red;
+    background-image: url("../assets/das.jpg");;
     border-radius: 50%;
+    background-size:100%;
     
 }
 .content{
