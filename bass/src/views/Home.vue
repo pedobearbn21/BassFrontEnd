@@ -18,12 +18,12 @@
           </div>
       </v-card-text>
     </v-card>
+    <br>
     <Postbox/>
 
     
     </body>
   </div>
-  
 </template>
 
 <script>
