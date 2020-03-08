@@ -1,6 +1,7 @@
 <template>
 
     <v-app id="sandbox">
+    <div v-if='logined'>
     <Drawner
       :primaryDrawer='primaryDrawer'
     />
@@ -27,14 +28,21 @@
     >
       <span class="px-4">&copy; {{ new Date().getFullYear() }}</span>
     </v-footer>
+    </div>
+    <div v-else>
+      <Login @login_success='success'/>
+    </div>
   </v-app>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import Drawner from '@/components/Drawner.vue';
+import Login from '@/views/Login.vue';
 export default {
   components:{
-    Drawner
+    Drawner,
+    Login
   },
   data() {
     return {
@@ -45,18 +53,27 @@ export default {
       footer: {
         inset: false,
       },
+      loginedL:false
       
     }
   },
-  mounted() {
-    this.testhello()
+  computed: mapState({
+    logined: state => state.user.login_Status
+  })
+  ,
+  created() {
+    this.$store.dispatch('user/Check_login')
+    this.login_success()
   },
   methods: {
-    testhello(){
-      // localStorage.setItem('access_token','1b6a5bb55ebde6467e1f7d3718f0c94733340c58')
-      this.axios.get('test/').then((res)=>{
-        console.log(res)
-      })
+    login_success(){
+        if(this.logined){
+          this.$router.push('/timeline')
+        }
+    },
+    success(){
+      this.$store.dispatch('user/Check_login')
+      this.$router.push('/timeline')
     }
   },
 }

@@ -61,6 +61,7 @@ export default {
                 data: this.user
             }).then((res)=>{
                 localStorage.setItem('access_token',res.data.key)
+                this.$emit('login_success')
             })
         },
         logout(){
