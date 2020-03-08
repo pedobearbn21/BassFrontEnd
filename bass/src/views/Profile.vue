@@ -2,24 +2,31 @@
   <div class="container">
     <div class="circle"></div>
       <v-row class="content justify-center">
-        <v-col md ="5">
+        <v-col md ="4">
             <v-text-field
                 label="Firstname"
             ></v-text-field>
         </v-col>
-      </v-row>
-      <v-row class="content justify-center">
-        <v-col md ="5">
+        <v-col md ="4">
             <v-text-field
                 label="Lastname"
             ></v-text-field>
         </v-col>
       </v-row>
+      
       <v-row class="content justify-center">
-        <v-col md ="5">
+        <v-col md ="4">
             <v-text-field
                 label="E-mail"
             ></v-text-field>
+        </v-col>
+        <v-col md ="4">
+            <v-text-field
+            value="100.00"
+            label="Balance"
+            regular
+            readonly
+          ></v-text-field>
         </v-col>
       </v-row>
       <v-btn large>Edit</v-btn>
@@ -43,8 +50,9 @@ export default {
 .circle{
     width:15%;
     height: 25%;
-    background-color: red;
+    background-image: url("../assets/das.jpg");;
     border-radius: 50%;
+    background-size:100%;
     
 }
 .content{
