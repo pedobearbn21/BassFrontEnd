@@ -48,6 +48,17 @@ export default {
       
     }
   },
+  mounted() {
+    this.testhello()
+  },
+  methods: {
+    testhello(){
+      // localStorage.setItem('access_token','1b6a5bb55ebde6467e1f7d3718f0c94733340c58')
+      this.axios.get('test/').then((res)=>{
+        console.log(res)
+      })
+    }
+  },
 }
 </script>
 
