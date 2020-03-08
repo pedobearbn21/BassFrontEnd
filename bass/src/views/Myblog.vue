@@ -63,9 +63,7 @@ export default {
         },
         getPost(){
             this.loadingTable = true
-
             this.axios.get('Postlist').then((response) => {
-             
               console.log(response)
               this.desserts = response.data
               this.loadingTable = false
