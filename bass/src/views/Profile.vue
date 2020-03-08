@@ -1,6 +1,14 @@
 <template>
   <div class="container">
-    <div class="circle"></div>
+    <div >
+      <v-avatar size="256">
+        <img
+          
+          src="../assets/das.jpg"
+          alt="Meliodas"
+        >
+      </v-avatar>
+    </div>
       <v-row class="content justify-center">
         <v-col md ="4">
             <v-text-field
@@ -47,16 +55,10 @@ export default {
     justify-content: center;
     flex-wrap:wrap;
 }
-.circle{
-    width:15%;
-    height: 25%;
-    background-image: url("../assets/das.jpg");;
-    border-radius: 50%;
-    background-size:100%;
-    
-}
+
 .content{
     width:100%;
 
 }
+
 </style>
