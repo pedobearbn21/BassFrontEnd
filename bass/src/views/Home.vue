@@ -9,29 +9,35 @@
       </v-list-item>
       <v-divider></v-divider>
       <v-card-text>
-        <v-row>
-          <v-col cols="12" >
-            <v-text-field
-              label="Outlined"
-              outlined
-            ></v-text-field>
-          </v-col>
+        <v-form
+          ref="form"
+          v-model="valid"
+          lazy-validation
+        >
+          <v-text-field
+            v-model="name"
+            outlined
+            label="หัวข้อ"
+            required
+          ></v-text-field>
 
-          <v-col cols="12">
-            <v-text-field
-              label="Outlined"
-              outlined
-            ></v-text-field>
+          <v-text-field
+            v-model="email"
+            outlined
+            label="อธิบาย"
+            required
+          ></v-text-field>
+        <v-row justify="end">
+          <v-col cols="2">
+          <v-btn >โพสต์</v-btn>
           </v-col>
         </v-row>
-        <v-row justify="end">
-          <v-btn small>โพสต์</v-btn>
-        </v-row>
+        </v-form> 
       </v-card-text>
     </v-card>
-    <br>
+    <div class="pt-5">
     <Postbox/>
-
+    </div>
     
     </body>
   </div>
