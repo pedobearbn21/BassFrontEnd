@@ -9,18 +9,35 @@
       </v-list-item>
       <v-divider></v-divider>
       <v-card-text>
-        <div>
-          <v-text-field label="หัวข้อ" :rules="rules" hide-details="auto"></v-text-field>
-          <v-text-field label="อธิบาย"></v-text-field>
-        </div>
-        <div>
-          <v-btn small>โพสต์</v-btn>
-        </div>
+        <v-form
+          ref="form"
+          v-model="valid"
+          lazy-validation
+        >
+          <v-text-field dense
+            v-model="name"
+            outlined
+            label="หัวข้อ"
+            required
+          ></v-text-field>
+
+          <v-text-field dense
+            v-model="email"
+            outlined
+            label="อธิบาย"
+            required
+          ></v-text-field>
+        <v-row justify="end">
+          <v-col cols="2">
+          <v-btn >โพสต์</v-btn>
+          </v-col>
+        </v-row>
+        </v-form> 
       </v-card-text>
     </v-card>
-    <br>
+    <div class="pt-5">
     <Postbox/>
-
+    </div>
     
     </body>
   </div>

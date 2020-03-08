@@ -8,6 +8,11 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
+    component: () =>
+        import(/* webpackChunkName: "about" */ "../views/Login.vue")
+  },
+  {
+    path: "/timeline",
     component: Home,
   },
   {

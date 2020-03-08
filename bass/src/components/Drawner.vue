@@ -50,7 +50,7 @@ export default {
     data() {
         return {
             items: [
-                { title: 'Home', icon: 'mdi-home-city', path: '/' },
+                { title: 'Home', icon: 'mdi-home-city', path: '/timeline' },
                 { title: 'Profile', icon: 'mdi-account', path: '/profile' },
                 { title: 'Myblog', icon: 'mdi-blogger', path: '/myblog' },
                 { title: 'Warehouse', icon: 'mdi-warehouse', path: '/warehouse' },
