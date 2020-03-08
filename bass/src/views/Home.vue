@@ -9,13 +9,24 @@
       </v-list-item>
       <v-divider></v-divider>
       <v-card-text>
-        <div>
-          <v-text-field label="หัวข้อ" :rules="rules" hide-details="auto"></v-text-field>
-          <v-text-field label="อธิบาย"></v-text-field>
-        </div>
-        <div>
+        <v-row>
+          <v-col cols="12" >
+            <v-text-field
+              label="Outlined"
+              outlined
+            ></v-text-field>
+          </v-col>
+
+          <v-col cols="12">
+            <v-text-field
+              label="Outlined"
+              outlined
+            ></v-text-field>
+          </v-col>
+        </v-row>
+        <v-row justify="end">
           <v-btn small>โพสต์</v-btn>
-        </div>
+        </v-row>
       </v-card-text>
     </v-card>
     <br>

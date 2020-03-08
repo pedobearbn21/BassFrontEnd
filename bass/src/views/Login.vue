@@ -1,7 +1,8 @@
 <template>
   <div>
-      <v-container>
-      <v-row>
+    <v-container>
+      <v-row
+        justify="center">
         <v-col
           cols="12"
           md="4"
@@ -11,7 +12,10 @@
             label="Username"
           ></v-text-field>
         </v-col>
+      </v-row>
 
+      <v-row
+        justify="center">
         <v-col
           cols="12"
           md="4"
@@ -21,23 +25,14 @@
             label="Password"
           ></v-text-field>
         </v-col>
-
-        <v-col
-          cols="12"
-          md="4"
-        >
-          <v-text-field
-            v-model="user.email"
-            label="E-mail"
-          ></v-text-field>
-        </v-col>
-        <v-col
-            cols='12'
-        >
-        <v-button @click="login">Login</v-button>
-        <v-button @click="logout">Logout</v-button>
-        </v-col>
+      </v-row>  
+      <v-col
+          cols='12'
+      >
+      <v-row justify="center">
+      <v-button @click="login">Login</v-button>
       </v-row>
+      </v-col>
     </v-container>
   </div>
 </template>
