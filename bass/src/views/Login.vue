@@ -1,40 +1,53 @@
 <template>
-  <div>
-    <v-container>
-      <v-row
+  <v-container class="center">
+    <v-card class="mx-auto " max-width="700">
+    
+        <v-card-text>
+          <v-form
+          ref="form"
+        >
+        <p class="head">Bass</p>
+          <v-row
+          justify="center">
+          <v-col
+          cols="12"
+          md="6"
+          >
+          
+          <v-text-field
+          dense
+          v-model="user.username"
+          outlined
+          label="Username"
+          ></v-text-field>
+          </v-col>
+          </v-row>
+        <v-row
         justify="center">
         <v-col
           cols="12"
-          md="4"
+          md="6"
         >
-          <v-text-field
-            v-model="user.username"
-            label="Username"
-          ></v-text-field>
-        </v-col>
-      </v-row>
-
-      <v-row
-        justify="center">
-        <v-col
-          cols="12"
-          md="4"
-        >
-          <v-text-field
-            v-model="user.password"
-            label="Password"
-          ></v-text-field>
+        <v-text-field
+          dense
+          v-model="user.password"
+          outlined
+          label="Password"
+        ></v-text-field>
         </v-col>
       </v-row>  
       <v-col
           cols='12'
       >
       <v-row justify="center">
-      <v-button @click="login">Login</v-button>
+      <v-btn @click="login">Login</v-btn>
       </v-row>
       </v-col>
-    </v-container>
-  </div>
+      </v-form>
+      </v-card-text>
+    </v-card>
+  </v-container>
+  
 </template>
 
 <script>
@@ -63,10 +76,24 @@ export default {
             localStorage.removeItem('access_token')
         }
     },
-
+    
 }
+
+
 </script>
 
 <style>
-
+  .center {
+    margin: 0;
+    position: absolute;
+    top: 40vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .head{
+    font-size: 48px;
+    display: flex;
+    justify-content: center;
+    padding:20px;
+  }
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <v-card class="mx-auto" max-width="750">
+    <v-card class="mx-auto" max-width="750" >
       <v-list-item>
         <v-list-item-content>
           <v-list-item-title class="headline">สร้างโพสต์</v-list-item-title>
